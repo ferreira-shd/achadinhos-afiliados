@@ -1,5 +1,6 @@
 const fallbackImage = "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?auto=format&fit=crop&w=900&q=80";
 const storageKey = "affiliate-showcase-products";
+const publishedProductsFile = "produtos.json";
 
 const sampleProducts = [
   {
@@ -40,7 +41,7 @@ const sampleProducts = [
   }
 ];
 
-let products = loadProducts();
+let products = sampleProducts.map(normalizeProduct);
 let activeCategory = "Todos";
 let draftProduct = null;
 let searchTerm = "";
@@ -72,20 +73,21 @@ const fields = {
   featured: document.querySelector("#product-featured")
 };
 
-function loadProducts() {
+function loadLocalProducts() {
   const saved = localStorage.getItem(storageKey);
-  if (!saved) return sampleProducts.map(normalizeProduct);
+  if (!saved) return [];
 
   try {
     const parsed = JSON.parse(saved);
-    return Array.isArray(parsed) && parsed.length ? parsed.map(normalizeProduct) : sampleProducts.map(normalizeProduct);
+    return Array.isArray(parsed) ? parsed.map(normalizeProduct) : [];
   } catch {
-    return sampleProducts.map(normalizeProduct);
+    return [];
   }
 }
 
 function saveProducts() {
-  localStorage.setItem(storageKey, JSON.stringify(products));
+  const localProducts = products.filter((product) => product.source !== "published");
+  localStorage.setItem(storageKey, JSON.stringify(localProducts));
 }
 
 function slugify(value) {
@@ -111,6 +113,40 @@ function normalizeProduct(product) {
     createdAt: product.createdAt || Date.now(),
     featured: Boolean(product.featured)
   };
+}
+
+function mergeProducts(publishedProducts, localProducts) {
+  const byId = new Map();
+
+  [...publishedProducts, ...localProducts].forEach((product) => {
+    byId.set(product.id, product);
+  });
+
+  return [...byId.values()];
+}
+
+async function loadPublishedProducts() {
+  try {
+    const response = await fetch(publishedProductsFile, { cache: "no-store" });
+    if (!response.ok) throw new Error("Arquivo de produtos nao encontrado.");
+
+    const data = await response.json();
+    const list = Array.isArray(data) ? data : data.products;
+    if (!Array.isArray(list)) throw new Error("Formato do arquivo de produtos invalido.");
+
+    const publishedProducts = list.map((product) => ({
+      ...normalizeProduct(product),
+      source: "published"
+    }));
+
+    products = mergeProducts(publishedProducts, loadLocalProducts());
+    renderProducts();
+    handleHashChange();
+  } catch {
+    products = mergeProducts(sampleProducts.map(normalizeProduct), loadLocalProducts());
+    renderProducts();
+    handleHashChange();
+  }
 }
 
 function getProductLink(product) {
@@ -357,6 +393,6 @@ detailShare.addEventListener("click", async () => {
 
 window.addEventListener("hashchange", handleHashChange);
 
-saveProducts();
 renderProducts();
 handleHashChange();
+loadPublishedProducts();
