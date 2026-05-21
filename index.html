@@ -68,9 +68,16 @@
               Imagem
               <input id="product-image" type="url" />
             </label>
+            <div class="image-preview" id="image-preview" hidden>
+              <img alt="Previa da imagem do produto" />
+            </div>
             <label>
               Descricao
               <textarea id="product-description" rows="3"></textarea>
+            </label>
+            <label class="check-line">
+              <input id="product-featured" type="checkbox" />
+              Marcar como destaque
             </label>
             <button class="secondary-button" id="publish-product" type="button">Publicar na vitrine</button>
           </div>
@@ -100,8 +107,49 @@
             </div>
             <span id="product-count">0 produtos</span>
           </div>
+          <div class="catalog-tools">
+            <label class="search-box" for="product-search">
+              Buscar produto
+              <input id="product-search" type="search" placeholder="Digite nome, loja ou categoria" />
+            </label>
+            <label class="sort-box" for="product-sort">
+              Ordenar
+              <select id="product-sort">
+                <option value="recent">Mais recentes</option>
+                <option value="featured">Destaques primeiro</option>
+                <option value="az">Nome A-Z</option>
+              </select>
+            </label>
+          </div>
           <div class="product-grid" id="product-grid"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <strong>Nenhum produto encontrado.</strong>
+            <span>Tente outra categoria ou outra palavra na busca.</span>
+          </div>
         </section>
+      </section>
+
+      <section class="product-detail" id="product-detail" hidden>
+        <div class="detail-shell">
+          <button class="detail-close" id="detail-close" type="button" aria-label="Fechar produto">Fechar</button>
+          <div class="detail-media">
+            <img id="detail-image" alt="" />
+          </div>
+          <div class="detail-content">
+            <span class="category-pill" id="detail-category"></span>
+            <h2 id="detail-title"></h2>
+            <p id="detail-description"></p>
+            <div class="detail-meta">
+              <span id="detail-store"></span>
+              <strong id="detail-price"></strong>
+            </div>
+            <div class="detail-actions">
+              <a class="buy-button" id="detail-buy" target="_blank" rel="noopener sponsored nofollow">Comprar</a>
+              <button class="secondary-button" id="detail-share" type="button">Copiar link</button>
+            </div>
+            <p class="share-status" id="share-status" role="status"></p>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -110,6 +158,7 @@
         <div class="product-media">
           <img alt="" />
           <span class="store-pill"></span>
+          <span class="featured-pill">Destaque</span>
         </div>
         <div class="product-body">
           <span class="category-pill"></span>
@@ -119,9 +168,17 @@
             <strong class="price"></strong>
             <a class="buy-button" target="_blank" rel="noopener sponsored nofollow">Comprar</a>
           </div>
+          <div class="card-actions">
+            <a class="details-button">Ver produto</a>
+            <button class="copy-link-button" type="button">Copiar link</button>
+          </div>
         </div>
       </article>
     </template>
+
+    <footer class="site-footer">
+      <p>Os botoes de compra levam para lojas parceiras. Precos e disponibilidade podem mudar no site da loja.</p>
+    </footer>
 
     <script src="app.js"></script>
   </body>
