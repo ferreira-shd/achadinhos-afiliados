@@ -1,46 +1,13 @@
 [
   {
-    "id": "produto-eletronico-mercado-livre",
-    "title": "Produto eletronico Mercado Livre",
-    "price": "Ver preco",
-    "description": "Oferta selecionada do Mercado Livre. Clique em comprar para ver o preco e os detalhes atualizados na loja.",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_705904-MLA99457989812_112025-F.webp",
-    "category": "Eletronicos",
+    "id": "riscadeira-cortag-prime-120",
+    "title": "Riscadeira Cortag Prime 120",
+    "price": "R$ 1.022,20",
+    "description": "Riscadeira Cortag Prime 120 para cortes em pisos e revestimentos. Clique em comprar para ver detalhes atualizados na loja.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_653691-MLA83993580534_052025-F.webp",
+    "category": "Ferramentas",
     "store": "Mercado Livre",
     "url": "https://meli.la/21QPLfi",
     "featured": true
-  },
-  {
-    "id": "fone-bluetooth-cancelamento",
-    "title": "Fone Bluetooth com cancelamento de ruido",
-    "price": "R$ 89,90",
-    "description": "Boa opcao para chamadas, treinos e uso diario, com estojo carregador compacto.",
-    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
-    "category": "Eletronicos",
-    "store": "Mercado Livre",
-    "url": "https://www.mercadolivre.com.br/",
-    "featured": true
-  },
-  {
-    "id": "organizador-cozinha",
-    "title": "Organizador modular para cozinha",
-    "price": "R$ 39,90",
-    "description": "Ajuda a separar mantimentos, utensilios e pequenos itens em armarios ou bancadas.",
-    "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80",
-    "category": "Casa",
-    "store": "Shopee",
-    "url": "https://shopee.com.br/",
-    "featured": false
-  },
-  {
-    "id": "mochila-casual",
-    "title": "Mochila casual resistente a respingos",
-    "price": "R$ 74,50",
-    "description": "Modelo versatil para trabalho, faculdade e pequenas viagens.",
-    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
-    "category": "Moda",
-    "store": "Parceiro",
-    "url": "https://www.mercadolivre.com.br/",
-    "featured": false
   }
 ]
