@@ -1,5 +1,16 @@
 [
   {
+    "id": "produto-eletronico-mercado-livre",
+    "title": "Produto eletronico Mercado Livre",
+    "price": "Ver preco",
+    "description": "Oferta selecionada do Mercado Livre. Clique em comprar para ver o preco e os detalhes atualizados na loja.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_705904-MLA99457989812_112025-F.webp",
+    "category": "Eletronicos",
+    "store": "Mercado Livre",
+    "url": "https://meli.la/21QPLfi",
+    "featured": true
+  },
+  {
     "id": "fone-bluetooth-cancelamento",
     "title": "Fone Bluetooth com cancelamento de ruido",
     "price": "R$ 89,90",
