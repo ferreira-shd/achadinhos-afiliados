@@ -1,5 +1,5 @@
 const fallbackImage = "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?auto=format&fit=crop&w=900&q=80";
-const storageKey = "affiliate-showcase-products";
+const storageKey = "affiliate-showcase-products-v2";
 const publishedProductsFile = "produtos.json";
 
 const sampleProducts = [
@@ -41,7 +41,7 @@ const sampleProducts = [
   }
 ];
 
-let products = sampleProducts.map(normalizeProduct);
+let products = [];
 let activeCategory = "Todos";
 let draftProduct = null;
 let searchTerm = "";
@@ -143,7 +143,7 @@ async function loadPublishedProducts() {
     renderProducts();
     handleHashChange();
   } catch {
-    products = mergeProducts(sampleProducts.map(normalizeProduct), loadLocalProducts());
+    products = loadLocalProducts();
     renderProducts();
     handleHashChange();
   }
