@@ -509,6 +509,13 @@ textarea {
   line-height: 1.05;
 }
 
+.detail-content h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
 .detail-content p {
   margin: 0;
   color: var(--muted);
@@ -545,6 +552,10 @@ textarea {
   min-height: 22px;
   color: var(--accent-dark) !important;
   font-weight: 700;
+}
+
+.single-product-detail {
+  min-height: calc(100vh - 92px);
 }
 
 .site-footer {

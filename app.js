@@ -150,8 +150,10 @@ async function loadPublishedProducts() {
 }
 
 function getProductLink(product) {
-  const cleanUrl = `${window.location.origin}${window.location.pathname}`;
-  return `${cleanUrl}#produto-${product.id}`;
+  const basePath = window.location.pathname
+    .replace(/index\.html$/i, "")
+    .replace(/\/produto\/.*$/i, "/");
+  return `${window.location.origin}${basePath}produto/${product.id}/`;
 }
 
 async function copyText(value) {
