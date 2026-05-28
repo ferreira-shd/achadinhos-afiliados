@@ -1,5 +1,38 @@
 [
   {
+    "id": "kit-5-discos-corte-diamantado-fortner-100mm",
+    "title": "Kit 5 Discos de Corte Diamantado Fortner 100mm",
+    "price": "R$ 55,19",
+    "description": "Kit 5 Discos de Corte Diamantado Fortner de 100mm para Porcelanato e Vidro com Bucha de Reducao. Clique em comprar para ver detalhes atualizados na loja.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_695744-MLA99987788357_112025-OO.jpg",
+    "category": "Ferramentas",
+    "store": "Mercado Livre",
+    "url": "https://meli.la/2tnjJGx",
+    "featured": false
+  },
+  {
+    "id": "broca-conica-chanfro-diamantada-m14",
+    "title": "Broca Conica Chanfro Diamantada M14",
+    "price": "R$ 21,99",
+    "description": "Broca Conica Chanfro Diamantada M14 Soldagem A Vacuo Rosca. Clique em comprar para ver detalhes atualizados na loja.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_724304-MLB82661406366_032025-OO.jpg",
+    "category": "Ferramentas",
+    "store": "Mercado Livre",
+    "url": "https://meli.la/2Mhq4JF",
+    "featured": false
+  },
+  {
+    "id": "4-unidades-lubrificante-k-med-200ml",
+    "title": "4 Unidades Lubrificante K-med 200ml",
+    "price": "R$ 76,37",
+    "description": "Kit com 4 unidades de lubrificante K-med 200ml. Clique em comprar para ver detalhes atualizados na loja.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_845559-MLU75358758335_032024-F.webp",
+    "category": "Beleza",
+    "store": "Mercado Livre",
+    "url": "https://meli.la/2h95bGp",
+    "featured": false
+  },
+  {
     "id": "misturador-magenotti-1600w",
     "title": "Misturador Magenotti 1600w",
     "price": "R$ 399,62",
