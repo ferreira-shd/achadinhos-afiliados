@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Afiliados</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">A</span>
+        <span>Painel Afiliados</span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Ver site</a>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-shell">
+        <div class="admin-copy">
+          <p class="eyebrow">Cadastro rapido</p>
+          <h1>Adicionar produto no site</h1>
+          <p>Preencha os dados, confira a imagem e clique em adicionar. O painel atualiza o arquivo do GitHub e cria a pagina individual do produto.</p>
+        </div>
+
+        <form class="admin-form" id="admin-product-form">
+          <label>
+            Link de afiliado
+            <input id="admin-url" type="url" placeholder="https://meli.la/..." required />
+          </label>
+
+          <label>
+            Nome do produto
+            <input id="admin-title" type="text" placeholder="Ex: Furadeira 12v com bateria" required />
+          </label>
+
+          <label>
+            Imagem
+            <input id="admin-image" type="url" placeholder="https://..." required />
+          </label>
+
+          <div class="admin-preview" id="admin-preview" hidden>
+            <img alt="Previa do produto" />
+          </div>
+
+          <div class="field-grid">
+            <label>
+              Valor
+              <input id="admin-price" type="text" placeholder="59,90" />
+            </label>
+            <label>
+              Categoria
+              <select id="admin-category">
+                <option>Ofertas</option>
+                <option>Eletronicos</option>
+                <option>Moda</option>
+                <option>Casa</option>
+                <option>Beleza</option>
+                <option>Esporte</option>
+                <option>Ferramentas</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Descricao
+            <textarea id="admin-description" rows="4" placeholder="Descricao que aparece na pagina do produto"></textarea>
+          </label>
+
+          <label class="check-line">
+            <input id="admin-featured" type="checkbox" />
+            Marcar como destaque
+          </label>
+
+          <button class="primary-button" type="submit">Adicionar produto</button>
+          <p class="status" id="admin-status" role="status"></p>
+        </form>
+
+        <section class="admin-result" id="admin-result" hidden>
+          <h2>Produto adicionado</h2>
+          <p>Agora suba no GitHub o arquivo <strong>produtos.json</strong> e a pasta <strong>produto</strong>.</p>
+          <label>
+            Link para compartilhar
+            <input id="admin-share-link" readonly />
+          </label>
+          <button class="secondary-button" id="admin-copy-link" type="button">Copiar link</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
