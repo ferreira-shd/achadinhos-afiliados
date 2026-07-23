@@ -70,6 +70,10 @@ form.addEventListener("submit", async (event) => {
     form.reset();
     updatePreview();
     setStatus("Produto adicionado com sucesso.", "success");
+
+    if (document.querySelector("#admin-publish-after-add").checked) {
+      await publishToGithub();
+    }
   } catch (error) {
     setStatus(`Erro: ${error.message}`, "warning");
   }
@@ -98,7 +102,7 @@ function setPublishStatus(message, tone = "neutral") {
   publishStatus.dataset.tone = tone;
 }
 
-publishButton.addEventListener("click", async () => {
+async function publishToGithub() {
   const token = document.querySelector("#github-token").value.trim();
   const saveToken = document.querySelector("#github-save-token").checked;
 
@@ -127,6 +131,10 @@ publishButton.addEventListener("click", async () => {
   } finally {
     publishButton.disabled = false;
   }
+}
+
+publishButton.addEventListener("click", async () => {
+  await publishToGithub();
 });
 
 loadTokenStatus();
