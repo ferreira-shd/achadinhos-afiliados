@@ -74,13 +74,18 @@
             Marcar como destaque
           </label>
 
-          <button class="primary-button" type="submit">Adicionar produto</button>
+          <label class="check-line">
+            <input id="admin-publish-after-add" type="checkbox" checked />
+            Publicar no GitHub depois de adicionar
+          </label>
+
+          <button class="primary-button" type="submit">Adicionar produto e publicar</button>
           <p class="status" id="admin-status" role="status"></p>
         </form>
 
         <section class="admin-result" id="admin-result" hidden>
-          <h2>Produto adicionado</h2>
-          <p>Agora voce pode publicar direto no GitHub usando o painel abaixo.</p>
+          <h2>Link do produto</h2>
+          <p>Use este link para compartilhar depois que a publicacao terminar.</p>
           <label>
             Link para compartilhar
             <input id="admin-share-link" readonly />
@@ -89,8 +94,8 @@
         </section>
 
         <section class="admin-publish">
-          <h2>Publicar no GitHub</h2>
-          <p>Use um token do GitHub com permissao para editar este repositorio. O token nao fica salvo no site.</p>
+          <h2>Configuracao do GitHub</h2>
+          <p>Preencha uma vez, marque para salvar o token e depois use o botao de adicionar produto acima.</p>
 
           <div class="field-grid">
             <label>
@@ -118,7 +123,7 @@
             Salvar token neste computador
           </label>
 
-          <button class="primary-button" id="publish-github" type="button">Publicar no GitHub</button>
+          <button class="secondary-button" id="publish-github" type="button">Publicar agora sem adicionar produto</button>
           <p class="status" id="publish-status" role="status"></p>
         </section>
       </section>
