@@ -613,7 +613,8 @@ textarea {
 }
 
 .admin-form,
-.admin-result {
+.admin-result,
+.admin-publish {
   display: grid;
   gap: 14px;
   padding: 22px;
@@ -624,7 +625,8 @@ textarea {
 }
 
 .admin-form label,
-.admin-result label {
+.admin-result label,
+.admin-publish label {
   display: grid;
   gap: 8px;
   color: #3d424a;
@@ -647,16 +649,20 @@ textarea {
   object-fit: cover;
 }
 
-.admin-result {
+.admin-result,
+.admin-publish {
   grid-column: 2;
 }
 
 .admin-result h2,
-.admin-result p {
+.admin-result p,
+.admin-publish h2,
+.admin-publish p {
   margin: 0;
 }
 
-.admin-result p {
+.admin-result p,
+.admin-publish p {
   color: var(--muted);
   line-height: 1.5;
 }
@@ -691,7 +697,8 @@ textarea {
     padding-right: 0;
   }
 
-  .admin-result {
+  .admin-result,
+  .admin-publish {
     grid-column: auto;
   }
 }
