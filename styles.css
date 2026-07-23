@@ -614,7 +614,8 @@ textarea {
 
 .admin-form,
 .admin-result,
-.admin-publish {
+.admin-publish,
+.admin-confirmation {
   display: grid;
   gap: 14px;
   padding: 22px;
@@ -626,7 +627,8 @@ textarea {
 
 .admin-form label,
 .admin-result label,
-.admin-publish label {
+.admin-publish label,
+.admin-confirmation label {
   display: grid;
   gap: 8px;
   color: #3d424a;
@@ -650,19 +652,23 @@ textarea {
 }
 
 .admin-result,
-.admin-publish {
+.admin-publish,
+.admin-confirmation {
   grid-column: 2;
 }
 
 .admin-result h2,
 .admin-result p,
 .admin-publish h2,
-.admin-publish p {
+.admin-publish p,
+.admin-confirmation h2,
+.admin-confirmation p {
   margin: 0;
 }
 
 .admin-result p,
-.admin-publish p {
+.admin-publish p,
+.admin-confirmation p {
   color: var(--muted);
   line-height: 1.5;
 }
@@ -698,7 +704,8 @@ textarea {
   }
 
   .admin-result,
-  .admin-publish {
+  .admin-publish,
+  .admin-confirmation {
     grid-column: auto;
   }
 }
