@@ -7,6 +7,9 @@ const imageInput = document.querySelector("#admin-image");
 const preview = document.querySelector("#admin-preview");
 const publishButton = document.querySelector("#publish-github");
 const publishStatus = document.querySelector("#publish-status");
+const confirmation = document.querySelector("#admin-confirmation");
+const confirmationText = document.querySelector("#admin-confirmation-text");
+const siteLink = document.querySelector("#admin-site-link");
 
 function setStatus(message, tone = "neutral") {
   statusEl.textContent = message;
@@ -107,6 +110,8 @@ async function publishToGithub() {
   const saveToken = document.querySelector("#github-save-token").checked;
 
   publishButton.disabled = true;
+  const originalButtonText = publishButton.textContent;
+  publishButton.textContent = "Publicando...";
   setPublishStatus("Publicando arquivos no GitHub... isso pode levar alguns minutos.");
 
   try {
@@ -125,11 +130,20 @@ async function publishToGithub() {
 
     if (!response.ok) throw new Error(data.details || data.error || "Nao foi possivel publicar.");
 
-    setPublishStatus(`Publicado com sucesso. ${data.count} arquivos enviados. Site: ${data.siteUrl}`, "success");
+    const finalMessage = `Produto enviado ao GitHub com sucesso. ${data.count} arquivos foram atualizados.`;
+    setPublishStatus(`${finalMessage} Site: ${data.siteUrl}`, "success");
+    confirmationText.textContent = finalMessage;
+    siteLink.href = data.siteUrl;
+    confirmation.hidden = false;
+    publishButton.textContent = "Publicado no GitHub";
   } catch (error) {
     setPublishStatus(`Erro ao publicar: ${error.message}`, "warning");
+    publishButton.textContent = originalButtonText;
   } finally {
     publishButton.disabled = false;
+    if (publishButton.textContent === "Publicando...") {
+      publishButton.textContent = originalButtonText;
+    }
   }
 }
 
