@@ -66,8 +66,9 @@ form.addEventListener("submit", async (event) => {
 
     if (!response.ok) throw new Error(data.details || data.error || "Nao foi possivel adicionar.");
 
-    const basePath = window.location.pathname.replace(/admin\.html$/i, "").replace(/admin$/i, "");
-    const publicLink = `${window.location.origin}${basePath}${data.sharePath.replace(/^\//, "")}`;
+    const owner = document.querySelector("#github-owner").value.trim();
+    const repo = document.querySelector("#github-repo").value.trim();
+    const publicLink = `https://${owner}.github.io/${repo}${data.sharePath}`;
     shareLink.value = publicLink;
     result.hidden = false;
     form.reset();
@@ -152,3 +153,9 @@ publishButton.addEventListener("click", async () => {
 });
 
 loadTokenStatus();
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  });
+}
