@@ -312,7 +312,7 @@ function renderProducts() {
     buyButton.setAttribute("aria-label", `Comprar ${product.title}`);
 
     const detailsButton = card.querySelector(".details-button");
-    detailsButton.href = `#produto-${product.id}`;
+    detailsButton.href = getProductLink(product);
     detailsButton.setAttribute("aria-label", `Ver produto ${product.title}`);
 
     const copyButton = card.querySelector(".copy-link-button");
