@@ -70,7 +70,8 @@ textarea {
 }
 
 .nav-button,
-.category-filter {
+.category-filter,
+.install-button {
   min-height: 38px;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -82,6 +83,14 @@ textarea {
 
 .nav-button {
   padding: 0 12px;
+}
+
+.install-button {
+  padding: 0 14px;
+  border-color: var(--orange);
+  background: var(--orange);
+  color: white;
+  font-weight: 800;
 }
 
 .nav-button.active,
