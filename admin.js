@@ -10,6 +10,7 @@ const publishStatus = document.querySelector("#publish-status");
 const confirmation = document.querySelector("#admin-confirmation");
 const confirmationText = document.querySelector("#admin-confirmation-text");
 const siteLink = document.querySelector("#admin-site-link");
+let latestProductLink = "";
 
 function setStatus(message, tone = "neutral") {
   statusEl.textContent = message;
@@ -69,6 +70,7 @@ form.addEventListener("submit", async (event) => {
     const owner = document.querySelector("#github-owner").value.trim();
     const repo = document.querySelector("#github-repo").value.trim();
     const publicLink = `https://${owner}.github.io/${repo}${data.sharePath}`;
+    latestProductLink = publicLink;
     shareLink.value = publicLink;
     result.hidden = false;
     form.reset();
@@ -132,9 +134,10 @@ async function publishToGithub() {
     if (!response.ok) throw new Error(data.details || data.error || "Nao foi possivel publicar.");
 
     const finalMessage = `Produto enviado ao GitHub com sucesso. ${data.count} arquivos foram atualizados.`;
-    setPublishStatus(`${finalMessage} Site: ${data.siteUrl}`, "success");
+    const linkMessage = latestProductLink ? ` Link direto: ${latestProductLink}` : ` Site: ${data.siteUrl}`;
+    setPublishStatus(`${finalMessage}${linkMessage}`, "success");
     confirmationText.textContent = finalMessage;
-    siteLink.href = data.siteUrl;
+    siteLink.href = latestProductLink || data.siteUrl;
     confirmation.hidden = false;
     publishButton.textContent = "Publicado no GitHub";
   } catch (error) {
