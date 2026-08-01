@@ -61,6 +61,8 @@ const detailSection = document.querySelector("#product-detail");
 const detailClose = document.querySelector("#detail-close");
 const detailShare = document.querySelector("#detail-share");
 const shareStatus = document.querySelector("#share-status");
+const installButton = document.querySelector("#install-app");
+let installPromptEvent = null;
 
 const fields = {
   link: document.querySelector("#affiliate-link"),
@@ -394,6 +396,27 @@ detailShare.addEventListener("click", async () => {
 });
 
 window.addEventListener("hashchange", handleHashChange);
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  });
+}
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  installPromptEvent = event;
+  if (installButton) installButton.hidden = false;
+});
+
+installButton?.addEventListener("click", async () => {
+  if (!installPromptEvent) return;
+
+  installPromptEvent.prompt();
+  await installPromptEvent.userChoice;
+  installPromptEvent = null;
+  installButton.hidden = true;
+});
 
 renderProducts();
 handleHashChange();
