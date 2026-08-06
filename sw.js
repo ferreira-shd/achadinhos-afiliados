@@ -1,10 +1,9 @@
-const CACHE_NAME = "achadinhos-app-v3";
+const CACHE_NAME = "achadinhos-app-v4";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
-  "./produtos.json",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
