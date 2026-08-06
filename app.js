@@ -130,7 +130,12 @@ function mergeProducts(publishedProducts, localProducts) {
 
 async function loadPublishedProducts() {
   try {
-    const response = await fetch(publishedProductsFile, { cache: "no-store" });
+    const response = await fetch(`${publishedProductsFile}?v=${Date.now()}`, {
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache"
+      }
+    });
     if (!response.ok) throw new Error("Arquivo de produtos nao encontrado.");
 
     const data = await response.json();
@@ -400,7 +405,9 @@ window.addEventListener("hashchange", handleHashChange);
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
+    navigator.serviceWorker.getRegistrations()
+      .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+      .catch(() => {});
   });
 }
 
