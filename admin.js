@@ -10,6 +10,7 @@ const publishStatus = document.querySelector("#publish-status");
 const confirmation = document.querySelector("#admin-confirmation");
 const confirmationText = document.querySelector("#admin-confirmation-text");
 const siteLink = document.querySelector("#admin-site-link");
+const shareVersion = "20260801";
 let latestProductLink = "";
 
 function setStatus(message, tone = "neutral") {
@@ -69,7 +70,7 @@ form.addEventListener("submit", async (event) => {
 
     const owner = document.querySelector("#github-owner").value.trim();
     const repo = document.querySelector("#github-repo").value.trim();
-    const publicLink = `https://${owner}.github.io/${repo}${data.sharePath}`;
+    const publicLink = `https://${owner}.github.io/${repo}${data.sharePath}?v=${shareVersion}`;
     latestProductLink = publicLink;
     shareLink.value = publicLink;
     result.hidden = false;
