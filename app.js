@@ -1,6 +1,7 @@
 const fallbackImage = "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?auto=format&fit=crop&w=900&q=80";
 const storageKey = "affiliate-showcase-products-v2";
 const publishedProductsFile = "produtos.json";
+const shareVersion = "20260801";
 
 const sampleProducts = [
   {
@@ -155,7 +156,7 @@ function getProductLink(product) {
   const basePath = window.location.pathname
     .replace(/index\.html$/i, "")
     .replace(/\/produto\/.*$/i, "/");
-  return `${window.location.origin}${basePath}produto/${product.id}/`;
+  return `${window.location.origin}${basePath}produto/${product.id}/?v=${shareVersion}`;
 }
 
 async function copyText(value) {
@@ -318,7 +319,7 @@ function renderProducts() {
     const copyButton = card.querySelector(".copy-link-button");
     copyButton.addEventListener("click", async () => {
       await copyText(getProductLink(product));
-      setStatus("Link do produto copiado. Agora e so compartilhar no grupo.", "success");
+      setStatus("Link com imagem copiado. Agora e so compartilhar no grupo.", "success");
     });
 
     grid.appendChild(card);
